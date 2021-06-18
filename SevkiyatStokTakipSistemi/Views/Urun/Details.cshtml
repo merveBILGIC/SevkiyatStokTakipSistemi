@@ -1,0 +1,37 @@
+﻿@model SevkiyatStokTakipSistemi.Models.Urun
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UrunName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UrunName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UrunBirimi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UrunBirimi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Resimyolu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Resimyolu)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UrunId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

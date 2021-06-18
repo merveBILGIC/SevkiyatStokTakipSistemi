@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SevkiyatStokTakipSistemi.Models.Urun>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunBirimi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resimyolu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunBirimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resimyolu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UrunId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UrunId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UrunId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

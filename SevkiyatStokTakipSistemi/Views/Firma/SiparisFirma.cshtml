@@ -1,0 +1,24 @@
+﻿@model SevkiyatStokTakipSistemi.ViewModel.FirmaSiparisiViewModel
+<form asp-controller="Firma" asp-action="SiparisFirma" method="post" class="form-horizontal" role="form">
+    <fieldset class="form-group">
+        <h3> Lütfen Firma Adını Seçiniz</h3>
+        <legend class="col-sm-3" control-label></legend>
+        <div class="custom-checkbox checkboxlist col-sm-9">
+            @{ 
+                for(int i=0;i<Model.FirmalarinListesi.Count();i++)
+                {
+                    <input asp-for="SeciliFirma" value="@Model.FirmalarinListesi[i].FirmaId" type="radio" />
+                    <label asp-for="@Model.FirmalarinListesi[i].FirmaId">@Model.FirmalarinListesi[i].CariIsim</label>
+                    <input asp-for="@Model.FirmalarinListesi[i].FirmaId"type="hidden"/>
+                }
+            }
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xl-12 col-sm-6 col-md-6 col-lg-4">
+                    <input id="Submit1" type="submit" value="Firmayı Onayla"/>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

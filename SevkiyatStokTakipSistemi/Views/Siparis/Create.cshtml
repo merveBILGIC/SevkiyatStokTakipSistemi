@@ -1,0 +1,91 @@
+﻿@model SevkiyatStokTakipSistemi.ViewModel.FSUViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+        
+
+<h1>Yeni Siparis Girişi </h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Siparis" method="post" >
+           
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Spr1.SiparisAcıklama" class="form-control"></label>
+                <input asp-for="@Model.Spr1.SiparisAcıklama" class="form-control" />
+                <span asp-validation-for="@Model.Spr1.SiparisAcıklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Spr1.SiparisTarihi" class="form-control"></label>
+                <input asp-for="@Model.Spr1.SiparisTarihi" class="form-control" />
+                <span asp-validation-for="@Model.Spr1.SiparisTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Spr1.TeslimTarihi" class="form-control"></label>
+                <input asp-for="@Model.Spr1.TeslimTarihi" class="form-control" />
+                <span asp-validation-for="@Model.Spr1.TeslimTarihi" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Spr1.UrunMiktari" class="form-control"></label>
+                <input asp-for="@Model.Spr1.UrunMiktari" class="form-control" />
+                <span asp-validation-for="@Model.Spr1.UrunMiktari" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Spr1.SevkAdresi" class="form-control"></label>
+                <input asp-for="@Model.Spr1.SevkAdresi" class="form-control" />
+                <span asp-validation-for="@Model.Spr1.SevkAdresi" class="text-danger"></span>
+
+            </div>
+            
+
+
+
+
+            <div class="form-group">
+              
+
+                    <select asp-for="@Model.Frm1.FirmaId" asp-items="ViewBag.Firma" class="form-control">
+
+                        <option value="">-- Firma Seçiniz --</option>
+                    </select>
+
+
+
+            </div>
+
+            <div class="input-group">
+                
+                    <select asp-for="@Model.Urun1.UrunId" asp-items="ViewBag.Urun" class="form-control">
+
+                        <option value="">-- Urun Seçiniz --</option>
+                    </select>
+
+
+
+               
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Sevkiyata Gönder" class="btn btn-primary" />
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

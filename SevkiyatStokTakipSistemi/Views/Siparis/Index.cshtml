@@ -1,0 +1,106 @@
+﻿@model SevkiyatStokTakipSistemi.ViewModel.FSUViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>---Siparişler---</h1>
+@*
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SiparisAcıklama)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SiparisTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeslimTarihi)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiparisAcıklama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiparisTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeslimTarihi)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SiparisId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SiparisId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SiparisId">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+*@
+
+<p>
+    <a asp-action="Create">Yeni Siparis Gir</a>
+</p>
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+            <th>Teslim Tarihi</th>
+            <th>Siparis Tarihi</th>
+            <th>Firma Adı</th>
+            <th>Urun</th>
+        </tr>
+
+    </thead>
+    <tbody id="tableBody">
+        @foreach (var item in Model.Siparisler)
+        {
+            <tr>
+                <th>
+                    <label name=" TeslimTarihi" type="text" />@item.TeslimTarihi
+                </th>
+                <th>
+                    <label type="text" name="SiparisTarihi" />@item.SiparisTarihi
+                </th>
+
+                <th>
+                    @foreach (var firmalar in item.FirmaSiparisleri)
+                    {
+                        @firmalar.Firma.CariIsim.ToString();
+                    }
+
+                </th>
+
+
+                <th>
+                    @foreach (var urunler in item.UrunSiparisleri)
+                    {
+                        @urunler.Urun.UrunName.ToString();
+                    }
+
+
+                </th>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SiparisId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SiparisId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SiparisId">Delete</a>
+                </td>
+
+            </tr>
+
+
+
+        }
+
+
+    </tbody>
+
+    </table>
